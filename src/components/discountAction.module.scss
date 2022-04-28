@@ -1,0 +1,144 @@
+$gray-color: #d3d3d3;
+$white-color: #fff;
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+
+  .card {
+    position: relative;
+    background-color: $white-color;
+    border-radius: 5px;
+    overflow: hidden;
+    min-width: 325px;
+
+    .actionType {
+      position: absolute;
+      left: 20px;
+      top: 20px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .image {
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: cover;
+      min-width: 100%;
+      min-height: 200px;
+    }
+
+    .info {
+      padding: 15px;
+      position: relative;
+
+      .likeButton {
+        border: solid 1px $gray-color;
+        position: absolute;
+        top: -20px;
+        right: 20px;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        background-color: $white-color;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .likeButton {
+        &:hover {
+          .likeButtonIcon {
+            fill: #f9a4e9;
+          }
+        }
+
+        .likeButtonIcon {
+          fill: $gray-color;
+        }
+
+        .likedButtonIcon {
+          fill: #4267b2;
+        }
+      }
+
+      .innerInfo {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 150px;
+
+        h1 {
+          font-size: 22px;
+          margin: 10px 0;
+        }
+
+        p {
+          margin: 5px 0;
+          color: #808080;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 667px) {
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    .card {
+      max-width: 325px;
+
+      .horizontalView {
+        display: flex;
+
+        .image {
+          min-width: 100px;
+          min-height: 175px;
+        }
+
+        .info {
+          padding: 0;
+          display: flex;
+
+          .likeButton {
+            top: 10px;
+            left: -15px;
+            height: 30px;
+            width: 30px;
+          }
+
+          .innerInfo {
+            justify-content: center;
+            margin: 0 20px;
+
+            .linkedPartner {
+              font-size: 12px;
+            }
+
+            h1 {
+              font-size: 14px;
+              margin: 0;
+            }
+
+            p {
+              font-size: 12px;
+            }
+
+            .actionType {
+              position: unset;
+              font-size: 12px;
+              width: max-content;
+            }
+          }
+        }
+      }
+    }
+  }
+}
